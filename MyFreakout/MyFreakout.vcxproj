@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="blackbox.cpp" />
-    <ClCompile Include="freakout.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="SnakeGame.cpp" />
     <ClCompile Include="SnakeSprite.cpp" />

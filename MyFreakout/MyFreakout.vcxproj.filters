@@ -13,42 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\graphic lib">
+      <UniqueIdentifier>{8c36fe1b-9c5e-4425-a880-5f145190c73b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\freakout">
+      <UniqueIdentifier>{09aa4158-3b4f-479a-ba5a-9e95e0e08628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\snake">
+      <UniqueIdentifier>{676e1b39-c90a-4445-9935-01385a588109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\commom">
+      <UniqueIdentifier>{16e4c251-0e77-49d8-80fc-a4bd35cd3b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\graphic lib">
+      <UniqueIdentifier>{ee4f5108-e36c-4efc-8614-85295ebdd892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\main">
+      <UniqueIdentifier>{abbcc911-7c95-4217-87d9-edafb513e02a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\freakout">
+      <UniqueIdentifier>{b60aa962-36e2-46cb-b89d-b4bda42c58e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\snake">
+      <UniqueIdentifier>{e0bd9903-ab9a-4c68-8a8c-08913763fa2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\commom">
+      <UniqueIdentifier>{bf76b949-cd6f-4aa8-8800-3be3d6a23a84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="blackbox.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\graphic lib</Filter>
     </ClInclude>
-    <ClInclude Include="windows_stuff.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SnakeSprite.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="game.h">
+      <Filter>头文件\freakout</Filter>
     </ClInclude>
     <ClInclude Include="SnakeGame.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeSprite.h">
+      <Filter>头文件\snake</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_stuff.h">
+      <Filter>头文件\commom</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="blackbox.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\graphic lib</Filter>
     </ClCompile>
-    <ClCompile Include="freakout.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件\main</Filter>
     </ClCompile>
-    <ClCompile Include="windows_stuff.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SnakeSprite.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="game.cpp">
+      <Filter>源文件\freakout</Filter>
     </ClCompile>
     <ClCompile Include="SnakeGame.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeSprite.cpp">
+      <Filter>源文件\snake</Filter>
+    </ClCompile>
+    <ClCompile Include="windows_stuff.cpp">
+      <Filter>源文件\commom</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
