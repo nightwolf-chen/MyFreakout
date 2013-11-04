@@ -23,6 +23,7 @@ public:
 	void draw();
 	void addBlock();
 	void drawBlock(SnakeBlock *block);
+	void setCurrentDirection(MoveDirection dir);
 private:
 	SnakeBlock *blocks;
 	SnakeBlock *tailBlock;
@@ -31,6 +32,7 @@ private:
 
 	int screenWidth;
 	int screenHight;
+	int speed;
 
 };
 

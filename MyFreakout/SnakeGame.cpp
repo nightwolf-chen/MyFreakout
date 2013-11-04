@@ -37,6 +37,23 @@ int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
     // clear drawing surface for the next frame of animation
     Draw_Rectangle(0,0,SCREEN_WIDTH-1, SCREEN_HEIGHT-1,200);
 
+	if (KEY_DOWN(VK_RIGHT))
+	{
+		snake.setCurrentDirection(MoveRight);
+	}
+	else if(KEY_DOWN(VK_LEFT))
+	{
+		snake.setCurrentDirection(MoveLeft);
+	}
+	else if(KEY_DOWN(VK_UP))
+	{
+		snake.setCurrentDirection(MoveUp);
+	}
+	else if(KEY_DOWN(VK_DOWN))
+	{
+		snake.setCurrentDirection(MoveDown);
+	}
+
 	snake.move();
 	snake.draw();
 	snake.addBlock();

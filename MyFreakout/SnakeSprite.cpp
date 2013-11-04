@@ -3,7 +3,7 @@
 #include "SnakeSprite.h"
 #include "blackbox.h"
 
-static int dir[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
+static int dir[4][2] = {{-1,0},{1,0},{0,-1},{0,1}};
 
 SnakeSprite::SnakeSprite(int w,int h)
 {
@@ -13,6 +13,7 @@ SnakeSprite::SnakeSprite(int w,int h)
 	currentDir = MoveLeft;
 	
 	blockCount = 20;
+	this->speed = 10;
 
 	int startX = w/2;
 	int startY = h/2;
@@ -58,8 +59,8 @@ bool SnakeSprite::move()
 	int xIncrement = dir[currentDir][0];
 	int yIncrement = dir[currentDir][1];
 
-	int tx = this->blocks->x + xIncrement;
-	int ty = this->blocks->y + yIncrement;
+	int tx = this->blocks->x + xIncrement*speed;
+	int ty = this->blocks->y + yIncrement*speed;
 
 	if(!(tx > 0 && tx < this->screenWidth && ty > 0 && ty < screenHight)){
 		return false;
@@ -121,4 +122,9 @@ void SnakeSprite::drawBlock(SnakeBlock *block)
 	int &x = block->x;
 	int &y = block->y;
 	Draw_Rectangle(x,y,x+10,y+10,0);
+}
+
+void SnakeSprite::setCurrentDirection(MoveDirection dir)
+{
+	this->currentDir = dir;
 }
