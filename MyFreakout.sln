@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyFreakout", "MyFreakout\MyFreakout.vcxproj", "{1E07CA92-FFD2-4A67-96E3-1EDA7E94F32A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E07CA92-FFD2-4A67-96E3-1EDA7E94F32A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1E07CA92-FFD2-4A67-96E3-1EDA7E94F32A}.Debug|Win32.Build.0 = Debug|Win32
+		{1E07CA92-FFD2-4A67-96E3-1EDA7E94F32A}.Release|Win32.ActiveCfg = Release|Win32
+		{1E07CA92-FFD2-4A67-96E3-1EDA7E94F32A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
