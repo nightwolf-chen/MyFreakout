@@ -6,7 +6,7 @@
 #include "blackbox.h" 
 #include "game.h"
 
-int game_state           = GAME_STATE_INIT; // starting state
+int game_state = GAME_STATE_INIT; // starting state
 int paddle_x = 0, paddle_y = 0; // tracks position of paddle
 int ball_x   = 0, ball_y   = 0; // tracks position of ball
 int ball_dx  = 0, ball_dy  = 0; // velocity of ball

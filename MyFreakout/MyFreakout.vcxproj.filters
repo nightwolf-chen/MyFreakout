@@ -5,60 +5,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Souce">
+    <Filter Include="src">
       <UniqueIdentifier>{90b1f66b-30f1-4384-a822-bff46a2df7a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Souce\graphic lib">
+    <Filter Include="src\graphic lib">
       <UniqueIdentifier>{8c36fe1b-9c5e-4425-a880-5f145190c73b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Souce\snake">
+    <Filter Include="src\snake">
       <UniqueIdentifier>{676e1b39-c90a-4445-9935-01385a588109}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Souce\freakout">
+    <Filter Include="src\freakout">
       <UniqueIdentifier>{09aa4158-3b4f-479a-ba5a-9e95e0e08628}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Souce\commom">
+    <Filter Include="src\commom">
       <UniqueIdentifier>{16e4c251-0e77-49d8-80fc-a4bd35cd3b8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Souce\main">
+    <Filter Include="src\main">
       <UniqueIdentifier>{abbcc911-7c95-4217-87d9-edafb513e02a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackbox.h">
-      <Filter>Souce\graphic lib</Filter>
+      <Filter>src\graphic lib</Filter>
     </ClInclude>
     <ClInclude Include="game.h">
-      <Filter>Souce\freakout</Filter>
+      <Filter>src\freakout</Filter>
     </ClInclude>
     <ClInclude Include="SnakeGame.h">
-      <Filter>Souce\snake</Filter>
+      <Filter>src\snake</Filter>
     </ClInclude>
     <ClInclude Include="SnakeSprite.h">
-      <Filter>Souce\snake</Filter>
+      <Filter>src\snake</Filter>
     </ClInclude>
     <ClInclude Include="windows_stuff.h">
-      <Filter>Souce\commom</Filter>
+      <Filter>src\commom</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Souce\main</Filter>
+      <Filter>src\main</Filter>
     </ClCompile>
     <ClCompile Include="blackbox.cpp">
-      <Filter>Souce\graphic lib</Filter>
+      <Filter>src\graphic lib</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
-      <Filter>Souce\freakout</Filter>
+      <Filter>src\freakout</Filter>
     </ClCompile>
     <ClCompile Include="windows_stuff.cpp">
-      <Filter>Souce\commom</Filter>
+      <Filter>src\commom</Filter>
     </ClCompile>
     <ClCompile Include="SnakeGame.cpp">
-      <Filter>Souce\snake</Filter>
+      <Filter>src\snake</Filter>
     </ClCompile>
     <ClCompile Include="SnakeSprite.cpp">
-      <Filter>Souce\snake</Filter>
+      <Filter>src\snake</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
