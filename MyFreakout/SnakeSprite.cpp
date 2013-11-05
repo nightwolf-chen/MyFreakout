@@ -5,11 +5,12 @@
 #include <cstdlib>
 
 static const int fps = 30;
-static const int unitsPerSecond=5;
+static const int unitsPerSecond=30;
 static int dir[5][2] = {{-1,0},{1,0},{0,-1},{0,1},{0,0}};
 static int BlockWitdh = 5;
 static int count = 0;
 
+//利用矩形的中心来判断是否相交
 bool interseted(int x1,int y1,int x2,int y2)
 {
 	int x11 = x1 + BlockWitdh;
@@ -38,7 +39,7 @@ SnakeSprite::SnakeSprite(int w,int h)
 	currentDir = MoveStay;
 	
 	blockCount = 4;
-	this->speed = 1;
+	this->speed = 5;
 
 	int startX = w/BlockWitdh/2*BlockWitdh;
 	int startY = h/BlockWitdh/2*BlockWitdh;
@@ -145,6 +146,17 @@ void SnakeSprite::addBlock(SnakeBlock block)
 	SnakeBlock *newBlock = new SnakeBlock;
 	newBlock->x = block.x;
 	newBlock->y = block.y;
+
+	//根据蛇当前的移动方向来修正将要加入block的位置
+	if (currentDir == MoveDown || currentDir == MoveUp)
+	{
+		newBlock->x = this->blocks->x;
+	}
+	else if(currentDir == MoveLeft || currentDir == MoveRight)
+	{
+		newBlock->y = this->blocks->y;
+	}
+
 	newBlock->next = this->blocks;
 	newBlock->pre = NULL;
 	

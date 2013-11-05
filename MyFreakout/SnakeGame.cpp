@@ -100,9 +100,6 @@ void checkForUserInput()
 
 void drawFrame()
 {
-	// clear drawing surface for the next frame of animation
-	
-	
 	OutputDebugStringA("drawframe\n");
 }
 
