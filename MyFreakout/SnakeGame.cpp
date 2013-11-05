@@ -6,6 +6,8 @@
 SnakeSprite snake(SCREEN_WIDTH, SCREEN_HEIGHT);
 bool forInit = true;
 SnakeBlock foodBlock;
+long score = 0;
+int scoreUnit = 100;
 
 int SnakeGame::Game_Init(void *parms)
 {
@@ -25,6 +27,7 @@ bool confictDetection();
 void checkForUserInput();
 void drawFrame();
 void gameLogic();
+void drawScore();
 
 int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
 {
@@ -44,10 +47,14 @@ int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
 	
 	if(!confictDetection()){
 		gameLogic();
+	}else{
+		score+=scoreUnit;
 	}
 
 	snake.draw();
 	snake.drawBlock(&foodBlock);
+
+	drawScore();
 
     DD_Flip();
 
@@ -56,7 +63,6 @@ int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
 
 	return 0;
 }
-
 SnakeBlock generateFoodBlock()
 {
 	int foodX = rand()%(SCREEN_WIDTH - BlockWitdh);
@@ -66,7 +72,6 @@ SnakeBlock generateFoodBlock()
 	food.y = foodY;
 	return food;
 }
-
 bool confictDetection()
 {
 	if (snake.detectConflictWithBlock(&foodBlock))
@@ -77,7 +82,6 @@ bool confictDetection()
 	}
 		return false;
 }
-
 void checkForUserInput()
 {
 	if (KEY_DOWN(VK_RIGHT))
@@ -97,13 +101,17 @@ void checkForUserInput()
 		snake.setCurrentDirection(MoveDown);
 	}
 }
-
 void drawFrame()
 {
 	OutputDebugStringA("drawframe\n");
 }
-
 void gameLogic()
 {
 	snake.move();
+}
+void drawScore()
+{
+	char buffer[30];
+	sprintf(buffer,"≤ªÀ¿Ã∞≥‘…ﬂ µ√∑÷£∫%d",score);
+	Draw_Text_GDI(buffer, 8,SCREEN_HEIGHT-30, 127);
 }
