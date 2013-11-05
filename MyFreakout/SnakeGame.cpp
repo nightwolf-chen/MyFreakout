@@ -6,6 +6,7 @@
 SnakeSprite snake(SCREEN_WIDTH, SCREEN_HEIGHT);
 bool forInit = true;
 
+
 int SnakeGame::Game_Init(void *parms)
 {
 	std::cout<<"Game snake is initializing...\n" ;
