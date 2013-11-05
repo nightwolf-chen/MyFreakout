@@ -7,8 +7,8 @@
 static const int fps = 30;
 static const int unitsPerSecond=30;
 static int dir[5][2] = {{-1,0},{1,0},{0,-1},{0,1},{0,0}};
-static int BlockWitdh = 5;
 static int count = 0;
+int BlockWitdh = 10;
 
 //利用矩形的中心来判断是否相交
 bool interseted(int x1,int y1,int x2,int y2)

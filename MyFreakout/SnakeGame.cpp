@@ -59,8 +59,8 @@ int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
 
 SnakeBlock generateFoodBlock()
 {
-	int foodX = rand()%SCREEN_WIDTH;
-	int foodY = rand()%SCREEN_HEIGHT;
+	int foodX = rand()%(SCREEN_WIDTH - BlockWitdh);
+	int foodY = rand()%(SCREEN_HEIGHT - BlockWitdh);
 	SnakeBlock food;
 	food.x = foodX;
 	food.y = foodY;

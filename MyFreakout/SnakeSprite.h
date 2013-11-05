@@ -1,5 +1,7 @@
 #pragma once
 
+extern int BlockWitdh ;
+
 typedef struct SnakeBlock{
 	int x;
 	int y;
