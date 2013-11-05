@@ -3,17 +3,18 @@
 #include "SnakeSprite.h"
 #include "blackbox.h"
 
-static int dir[4][2] = {{-1,0},{1,0},{0,-1},{0,1}};
+static int dir[5][2] = {{-1,0},{1,0},{0,-1},{0,1},{0,0}};
+static int BlockWitdh = 5;
 
 SnakeSprite::SnakeSprite(int w,int h)
 {
 	screenWidth = w;
 	screenHight = h;
 
-	currentDir = MoveLeft;
+	currentDir = MoveStay;
 	
-	blockCount = 20;
-	this->speed = 10;
+	blockCount = 4;
+	this->speed = 5;
 
 	int startX = w/2;
 	int startY = h/2;
@@ -24,17 +25,14 @@ SnakeSprite::SnakeSprite(int w,int h)
 	for(int i = 0 ; i < blockCount;i++){
 
 		newBlock = new SnakeBlock;
-		newBlock->x = startX - i;
+		newBlock->x = startX + i*BlockWitdh;
 		newBlock->y = startY;
 
 		if(i == 0){
-
 			lastBlock = newBlock;
 			this->blocks = newBlock;
 			this->blocks->pre = NULL;
-
 		}else{
-			
 			lastBlock->next = newBlock;
 			newBlock->pre = lastBlock;
 			lastBlock = newBlock;
@@ -62,7 +60,7 @@ bool SnakeSprite::move()
 	int tx = this->blocks->x + xIncrement*speed;
 	int ty = this->blocks->y + yIncrement*speed;
 
-	if(!(tx > 0 && tx < this->screenWidth && ty > 0 && ty < screenHight)){
+	if(!(tx >= 0 && tx < this->screenWidth && ty >= 0 && ty < screenHight)){
 		return false;
 	}
 
@@ -77,7 +75,7 @@ bool SnakeSprite::move()
 		snakeP = snakeP->next;
 	}
 	
-	//将链表的尾节点放到链表前段重复利用，利用链表的特性来模拟蛇的行走方式
+	/*将链表的尾节点放到链表前段重复利用，利用链表的特性来模拟蛇的行走方式*/
 	this->tailBlock->pre->next = NULL;
 
 	this->tailBlock->next = this->blocks;
@@ -97,34 +95,47 @@ void SnakeSprite::draw()
 {
 	SnakeBlock *snakeP = this->blocks;
 
+	int blocksDrawed = 0 ;
 	while(snakeP != NULL){
-		
-		/*int &x = snakeP->x;
-		int &y = snakeP->y;
-
-		Draw_Rectangle(x,y,x+5,y+5,0);*/
-
 		this->drawBlock(snakeP);
-
 		snakeP = snakeP->next;
+		blocksDrawed++;
 	}
-
-	//OutputDebugStringA("-----------------------\n");
+	/*char debugstr[50];
+	sprintf(debugstr,"blocksdrawed:%d\n",blocksDrawed);
+	OutputDebugStringA(debugstr);*/
 }
 
-void SnakeSprite::addBlock()
+void SnakeSprite::addBlock(SnakeBlock *newBlock)
 {
 	//OutputDebugStringA("snake add");
+	newBlock->next = this->blocks;
+	newBlock->pre = NULL;
+	
+	this->blocks->pre = newBlock;
+	this->blocks = newBlock;
 }
 
 void SnakeSprite::drawBlock(SnakeBlock *block)
 {
 	int &x = block->x;
 	int &y = block->y;
-	Draw_Rectangle(x,y,x+10,y+10,0);
+
+	Draw_Rectangle(x,y,x+BlockWitdh,y+BlockWitdh,0);
 }
 
 void SnakeSprite::setCurrentDirection(MoveDirection dir)
 {
 	this->currentDir = dir;
+}
+
+bool SnakeSprite::detectConflictWithBlock(SnakeBlock *block)
+{
+	int &x = block->x;
+	int &y = block->y;
+
+	if(x == this->blocks->x && y == this->blocks->y){
+		return true;
+	}
+		return false;
 }

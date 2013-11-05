@@ -11,7 +11,8 @@ typedef enum MoveDirection{
 	MoveLeft,
 	MoveRight,
 	MoveUp,
-	MoveDown
+	MoveDown,
+	MoveStay
 }MoveDirection;
 
 class SnakeSprite
@@ -21,18 +22,17 @@ public:
 	~SnakeSprite();
 	bool move();
 	void draw();
-	void addBlock();
+	void addBlock(SnakeBlock *newBlock);
 	void drawBlock(SnakeBlock *block);
 	void setCurrentDirection(MoveDirection dir);
+	bool detectConflictWithBlock(SnakeBlock *block);
 private:
 	SnakeBlock *blocks;
 	SnakeBlock *tailBlock;
 	int blockCount;
 	MoveDirection currentDir;
-
 	int screenWidth;
 	int screenHight;
 	int speed;
-
 };
 
