@@ -2,9 +2,33 @@
 #include <iostream>
 #include "SnakeSprite.h"
 #include "blackbox.h"
+#include <cstdlib>
 
+static const int fps = 30;
+static const int unitsPerSecond=5;
 static int dir[5][2] = {{-1,0},{1,0},{0,-1},{0,1},{0,0}};
 static int BlockWitdh = 5;
+static int count = 0;
+
+bool interseted(int x1,int y1,int x2,int y2)
+{
+	int x11 = x1 + BlockWitdh;
+	int y11 = y1 + BlockWitdh;
+	int x22 = x2 + BlockWitdh;
+	int y22 = y2 + BlockWitdh;
+
+	int centerDifX = abs(x11+x1-x22-x2);
+	int centerDifY = abs(y11+y1-y22-y2);
+
+	char debugtStr[50];
+	sprintf(debugtStr,"xDif:%d yDif:%d\n",centerDifX,centerDifY);
+	OutputDebugStringA(debugtStr);
+
+	if(centerDifX < 2*BlockWitdh && centerDifY < 2*BlockWitdh){
+		return true;
+	}
+	return false;
+}
 
 SnakeSprite::SnakeSprite(int w,int h)
 {
@@ -14,10 +38,10 @@ SnakeSprite::SnakeSprite(int w,int h)
 	currentDir = MoveStay;
 	
 	blockCount = 4;
-	this->speed = 5;
+	this->speed = 1;
 
-	int startX = w/2;
-	int startY = h/2;
+	int startX = w/BlockWitdh/2*BlockWitdh;
+	int startY = h/BlockWitdh/2*BlockWitdh;
 
 	SnakeBlock *lastBlock;
 	SnakeBlock *newBlock;
@@ -53,12 +77,21 @@ SnakeSprite::~SnakeSprite()
 bool SnakeSprite::move()
 {
 	//OutputDebugStringA("snake moves");
+	if(currentDir == MoveStay){
+		return false;
+	}
+
+	if(count-- > 0){
+		return false;
+	}else{
+		count = fps / unitsPerSecond;
+	}
 
 	int xIncrement = dir[currentDir][0];
 	int yIncrement = dir[currentDir][1];
 
-	int tx = this->blocks->x + xIncrement*speed;
-	int ty = this->blocks->y + yIncrement*speed;
+	int tx = this->blocks->x + xIncrement*BlockWitdh;
+	int ty = this->blocks->y + yIncrement*BlockWitdh;
 
 	if(!(tx >= 0 && tx < this->screenWidth && ty >= 0 && ty < screenHight)){
 		return false;
@@ -68,7 +101,7 @@ bool SnakeSprite::move()
 
 	while(snakeP != NULL){
 	
-		if(tx == snakeP->x && ty == snakeP->y){
+		if(interseted(tx,ty,snakeP->x,snakeP->y)){
 			return false;
 		}
 
@@ -106,9 +139,12 @@ void SnakeSprite::draw()
 	OutputDebugStringA(debugstr);*/
 }
 
-void SnakeSprite::addBlock(SnakeBlock *newBlock)
+void SnakeSprite::addBlock(SnakeBlock block)
 {
 	//OutputDebugStringA("snake add");
+	SnakeBlock *newBlock = new SnakeBlock;
+	newBlock->x = block.x;
+	newBlock->y = block.y;
 	newBlock->next = this->blocks;
 	newBlock->pre = NULL;
 	
@@ -120,6 +156,7 @@ void SnakeSprite::drawBlock(SnakeBlock *block)
 {
 	int &x = block->x;
 	int &y = block->y;
+
 
 	Draw_Rectangle(x,y,x+BlockWitdh,y+BlockWitdh,0);
 }
@@ -134,8 +171,9 @@ bool SnakeSprite::detectConflictWithBlock(SnakeBlock *block)
 	int &x = block->x;
 	int &y = block->y;
 
-	if(x == this->blocks->x && y == this->blocks->y){
+	/*if(x == this->blocks->x && y == this->blocks->y){
 		return true;
 	}
-		return false;
+		return false;*/
+	return interseted(x,y,this->blocks->x,this->blocks->y);
 }

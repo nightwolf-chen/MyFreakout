@@ -22,7 +22,7 @@ public:
 	~SnakeSprite();
 	bool move();
 	void draw();
-	void addBlock(SnakeBlock *newBlock);
+	void addBlock(SnakeBlock block);
 	void drawBlock(SnakeBlock *block);
 	void setCurrentDirection(MoveDirection dir);
 	bool detectConflictWithBlock(SnakeBlock *block);

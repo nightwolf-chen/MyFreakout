@@ -58,4 +58,5 @@ int check_messages(MSG &msg){
 		DispatchMessage(&msg);
 	} // end if
 
+	return 0;
 }

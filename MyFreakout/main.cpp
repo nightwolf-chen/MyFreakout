@@ -107,5 +107,7 @@ int init_window(HINSTANCE hinstance)
 	// save the window handle and instance in a global
 	main_window_handle = hwnd;
 	main_instance      = hinstance;
+
+	return 0;
 }
 
