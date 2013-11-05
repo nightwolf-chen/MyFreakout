@@ -21,10 +21,6 @@ bool interseted(int x1,int y1,int x2,int y2)
 	int centerDifX = abs(x11+x1-x22-x2);
 	int centerDifY = abs(y11+y1-y22-y2);
 
-	char debugtStr[50];
-	sprintf(debugtStr,"xDif:%d yDif:%d\n",centerDifX,centerDifY);
-	OutputDebugStringA(debugtStr);
-
 	if(centerDifX < 2*BlockWitdh && centerDifY < 2*BlockWitdh){
 		return true;
 	}

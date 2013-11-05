@@ -66,8 +66,6 @@ int WINAPI WinMain(	HINSTANCE hinstance,HINSTANCE hprevinstance,LPSTR lpcmdline,
 
 } // end WinMain
 
-
-
 //Helpers
 int init_window(HINSTANCE hinstance)
 {

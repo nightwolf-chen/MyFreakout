@@ -53,7 +53,7 @@ int SnakeGame::Game_Main(void *parms, HWND main_window_handle)
 	snake.draw();
 	snake.drawBlock(&foodBlock);
 	drawScore();
-	drawAdditionalInfo("My First Windows Game!");
+	//drawAdditionalInfo("My First Windows Game!");
 
     DD_Flip();
     // sync to 33ish fps
@@ -104,7 +104,7 @@ void checkForUserInput()
 void drawScore()
 {
 	char buffer[30];
-	sprintf(buffer,"不死贪吃蛇 得分：%d",score);
+	sprintf(buffer,"不死贪吃蛇(1.0 nirvawolf) 得分：%d",score);
 	Draw_Text_GDI(buffer, 8,SCREEN_HEIGHT-30, 127);
 }
 void drawAdditionalInfo(char *str)
