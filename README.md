@@ -3,4 +3,5 @@ MyFreakout
 
 My First Game
 
-尝试使用dx写一个贪吃蛇游戏，游戏框架来源于《windows 游戏编程大师技巧 第二版》
+This is the first windows game I'm trying to create using dx sdk. And it is actually the famouse game Snake.I use the
+little graphic library by André LaMothe which he wrote in his book 'Tricks of the Windows® Game Programming Gurus'.
