@@ -214,9 +214,5 @@ bool SnakeSprite::detectConflictWithBlock(SnakeBlock *block)
 	int &x = block->x;
 	int &y = block->y;
 
-	/*if(x == this->blocks->x && y == this->blocks->y){
-		return true;
-	}
-		return false;*/
 	return interseted(x,y,this->blocks->x,this->blocks->y);
 }
