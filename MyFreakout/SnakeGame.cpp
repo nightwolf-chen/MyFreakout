@@ -103,7 +103,7 @@ void checkForUserInput()
 }
 void drawScore()
 {
-	char buffer[30];
+	char buffer[100];
 	sprintf(buffer,"≤ªÀ¿Ã∞≥‘…ﬂ(1.0 nirvawolf) µ√∑÷£∫%d",score);
 	Draw_Text_GDI(buffer, 8,SCREEN_HEIGHT-30, 127);
 }
