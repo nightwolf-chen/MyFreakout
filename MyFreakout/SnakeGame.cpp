@@ -1,26 +1,27 @@
 #include "SnakeGame.h"
 #include "SnakeSprite.h"
 #include "blackbox.h"
+#include "SnakeSound.h"
 #include <iostream>
 
-SnakeSprite snake(SCREEN_WIDTH, SCREEN_HEIGHT);
-bool forInit = true;
-SnakeBlock foodBlock;
-long score = 0;
-int scoreUnit = 100;
+SnakeSprite		 snake(SCREEN_WIDTH, SCREEN_HEIGHT);
+bool forInit   = true;
+SnakeBlock		 foodBlock;
+long score	   = 0;
+int	 scoreUnit = 100;
 
 //Game main helpers.
-SnakeBlock generateFoodBlock();
-bool confictDetection();
-void checkForUserInput();
-void drawFrame();
-void gameLogic();
-void drawScore();
-void drawAdditionalInfo(char *str);
+SnakeBlock	generateFoodBlock();
+bool		confictDetection();
+void		checkForUserInput();
+void		drawFrame();
+void		gameLogic();
+void		drawScore();
+void		drawAdditionalInfo(char *str);
 
-int SnakeGame::Game_Init(void *parms)
+int SnakeGame::Game_Init(void *parms,HWND main_window_handle)
 {
-	std::cout<<"Game snake is initializing...\n" ;
+	playBackgroundMusic(main_window_handle);
 	return 0;
 }
 int SnakeGame::Game_Shutdown(void *parms)
@@ -72,7 +73,7 @@ SnakeBlock generateFoodBlock()
 	food.y = foodY;
 	return food;
 }
-bool confictDetection()
+bool	   confictDetection()
 {
 	if (snake.detectConflictWithBlock(&foodBlock))
 	{
@@ -82,7 +83,7 @@ bool confictDetection()
 	}
 		return false;
 }
-void checkForUserInput()
+void	   checkForUserInput()
 {
 	if (KEY_DOWN(VK_RIGHT))
 	{
@@ -101,13 +102,13 @@ void checkForUserInput()
 		snake.setCurrentDirection(MoveDown);
 	}
 }
-void drawScore()
+void	   drawScore()
 {
 	char buffer[100];
 	sprintf(buffer,"²»ËÀÌ°³ÔÉß(1.0 nirvawolf) µÃ·Ö£º%d",score);
 	Draw_Text_GDI(buffer, 8,SCREEN_HEIGHT-30, 127);
 }
-void drawAdditionalInfo(char *str)
+void	   drawAdditionalInfo(char *str)
 {
 	Draw_Text_GDI(str, (SCREEN_WIDTH-200) / 2,SCREEN_HEIGHT/2, 127);
 }

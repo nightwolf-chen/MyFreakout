@@ -47,7 +47,7 @@ int WINAPI WinMain(	HINSTANCE hinstance,HINSTANCE hprevinstance,LPSTR lpcmdline,
 {
 
 	init_window(hinstance);
-	Game_Init();
+	Game_Init(NULL,main_window_handle);
 
 	// enter main event loop
 	while(1)

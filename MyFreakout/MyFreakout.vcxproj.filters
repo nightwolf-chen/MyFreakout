@@ -40,6 +40,9 @@
     <ClInclude Include="windows_stuff.h">
       <Filter>src\commom</Filter>
     </ClInclude>
+    <ClInclude Include="SnakeSound.h">
+      <Filter>src\snake</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,5 +63,13 @@
     <ClCompile Include="SnakeSprite.cpp">
       <Filter>src\snake</Filter>
     </ClCompile>
+    <ClCompile Include="SnakeSound.cpp">
+      <Filter>src\snake</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="super_mario.wav">
+      <Filter>src\snake</Filter>
+    </None>
   </ItemGroup>
 </Project>

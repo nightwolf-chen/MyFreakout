@@ -10,7 +10,7 @@
 
 
 namespace SnakeGame{
-int Game_Init(void *parms=NULL);
+int Game_Init(void *parms,HWND main_window_handle);
 int Game_Shutdown(void *parms=NULL);
 int Game_Main(void *parms=NULL , HWND main_window_handle=NULL);
 }
